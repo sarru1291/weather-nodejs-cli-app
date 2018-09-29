@@ -13,7 +13,12 @@ var argv = yargs.option({
 geocode.geocodeAddress(argv.address, (geocodeInfo) => {
 
     weather.getWeather(geocodeInfo, (weatherInfo) => {
-        console.log(geocodeInfo.formatted_address);
-        console.log(weatherInfo.currentTemperature);
+
+        console.log("\nAddress: " + geocodeInfo.formatted_address);
+        console.log("\n---------Current Weather Report---------" +
+            "\n     Summary: " + weatherInfo.currentSummary +
+            "\n     Temperature: " + weatherInfo.currentTemperature +
+            "\n     ApparentTemperature: " + weatherInfo.currentApparentTemperature +
+            "\n     Humidity: " + weatherInfo.currentHumidity + "\n          ---------\n");
     });
 });
